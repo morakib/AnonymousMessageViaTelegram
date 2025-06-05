@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Anonymous Message</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #2481cc; margin-bottom: 30px; }
+        textarea { width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 10px; font-size: 16px; min-height: 120px; resize: vertical; }
+        textarea:focus { border-color: #2481cc; outline: none; }
+        .emoji-btn { background: #f8f9fa; border: 2px solid #ddd; border-radius: 25px; padding: 8px 15px; margin: 5px; cursor: pointer; }
+        .emoji-btn.selected { background: #2481cc; color: white; border-color: #2481cc; }
+        .send-btn { width: 100%; background: #2481cc; color: white; border: none; padding: 15px; border-radius: 10px; font-size: 18px; cursor: pointer; margin-top: 20px; }
+        .send-btn:hover { background: #1967a3; }
+        .status { padding: 15px; border-radius: 10px; margin-top: 15px; text-align: center; display: none; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📝 Send Anonymous Message</h1>
+        
+        <div style="margin-bottom: 20px;">
+            <label>Choose mood (optional):</label><br>
+            <button class="emoji-btn" onclick="selectEmoji('😊', this)">😊 Happy</button>
+            <button class="emoji-btn" onclick="selectEmoji('❤️', this)">❤️ Love</button>
+            <button class="emoji-btn" onclick="selectEmoji('🤔', this)">🤔 Question</button>
+            <button class="emoji-btn" onclick="selectEmoji('👏', this)">👏 Praise</button>
+            <button class="emoji-btn" onclick="selectEmoji('😡', this)">😡 Angry</button>
+        </div>
+        
+        <textarea id="message" placeholder="Write your anonymous message here... Be kind! 😊" maxlength="500"></textarea>
+        
+        <button class="send-btn" onclick="sendMessage()">📤 Send Anonymously</button>
+        
+        <div class="status" id="status"></div>
+        <!-- New Button for Creating Own -->
+        <button class="send-btn" style="background: #34a853; margin-top: 10px;" onclick="window.open('https://t.me/Chupi_chupi_7_bot', '_blank')">
+            ➕ Create your own link
+        </button>
+    </div>
+
+    <script>
+        let selectedEmoji = '';
+        function selectEmoji(emoji, btn) {
+            document.querySelectorAll('.emoji-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedEmoji = emoji;
+        }
+        
+        async function sendMessage() {
+            const message = document.getElementById('message').value.trim();
+            const username = window.location.pathname.split('/u/')[1];
+            
+            if (!message) {
+                showStatus('Please write a message!', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/send-message', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, message, emoji: selectedEmoji })
+                });
+                
+                if (response.ok) {
+                    showStatus('✅ Message sent successfully!', 'success');
+                    document.getElementById('message').value = '';
+                    selectedEmoji = '';
+                    document.querySelectorAll('.emoji-btn').forEach(b => b.classList.remove('selected'));
+                } else {
+                    showStatus('❌ Failed to send message', 'error');
+                }
+            } catch (error) {
+                showStatus('❌ Network error', 'error');
+            }
+        }
+        
+        function showStatus(msg, type) {
+            const status = document.getElementById('status');
+            status.textContent = msg;
+            status.className = `status ${type}`;
+            status.style.display = 'block';
+            setTimeout(() => status.style.display = 'none', 5000);
+        }
+    </script>
+</body>
+</html>

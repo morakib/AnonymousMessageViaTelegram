@@ -27,7 +27,7 @@ bot.onText(/\/start/, (msg) => {
     users.set(chatId, username);
     usernames.set(username, chatId);
     
-    const messageLink = `https://chupi-chupi-7.onrender.com/u/${username}`;
+    const messageLink = `https://chupi-chupi.onrender.com/u/${username}`;
     
     bot.sendMessage(chatId, `
 🎉 Welcome to Chupi_chupi
@@ -48,7 +48,7 @@ bot.onText(/\/link/, (msg) => {
     const username = users.get(chatId);
     
     if (username) {
-        const messageLink = `https://chupi-chupi-7.onrender.com/u/${username}`;
+        const messageLink = `https://chupi-chupi.onrender.com/u/${username}`;
         bot.sendMessage(chatId, `Your message link:\n${messageLink}`);
     } else {
         bot.sendMessage(chatId, 'Please send /start first!');

@@ -1,8 +1,7 @@
 🤫 Chupi Chupi - Anonymous Messaging Bot
 A Telegram bot that allows users to send and receive anonymous messages through a simple web interface.
-📸 Screenshots
+🔗 **[open bot from here](https://t.me/Chupi_chupi_7_bot)**  
 
-![Main interface for sending anonymous messages with mood selection](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/1.jpg)
 ![Telegram bot profile and start interface](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/2.jpg)
 ![Initial empty chat state before receiving messages](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/3.jpg)
 ![Complete bot setup with link sharing instructions](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/4.jpg)

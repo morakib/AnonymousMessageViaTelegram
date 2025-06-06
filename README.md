@@ -3,18 +3,12 @@ A Telegram bot that allows users to send and receive anonymous messages through 
 📸 Screenshots
 
 ![Main interface for sending anonymous messages with mood selection](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/1.jpg)
-
-![Text input area for composing anonymous messages](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/5.jpg)
-
-![Example of a composed message ready to be sent](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/7.jpg)
-
-![Example of receiving message](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/8.jpg)
-
 ![Telegram bot profile and start interface](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/2.jpg)
-
 ![Initial empty chat state before receiving messages](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/3.jpg)
-
 ![Complete bot setup with link sharing instructions](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/4.jpg)
+![Text input area for composing anonymous messages](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/5.jpg)
+![Example of a composed message ready to be sent](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/7.jpg)
+![Example of receiving message](https://raw.githubusercontent.com/morakib/AnonymousMessageViaTelegram/main/screenshots/8.jpg)
 ✨ Features
 
 Anonymous Messaging: Send messages without revealing your identity
